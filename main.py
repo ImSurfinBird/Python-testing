@@ -32,3 +32,4 @@ class Suffer:
 
 
 Suffer()
+print("poop")
