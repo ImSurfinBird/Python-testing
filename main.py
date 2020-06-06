@@ -51,7 +51,6 @@ class Suffer:
             'y': 50,
             'displayed': True,
             'drag': False,
-            'moving': False,
             'type': "Rectangle",
         }
         enemy = {
@@ -65,13 +64,25 @@ class Suffer:
             'type': "Rectangle",
             'direction': 'RIGHT',
         }
+        image = {
+            'name': "image",
+            'width': 50,
+            'height': 50,
+            'x': 50,
+            'y': 50,
+            'image': pg.image.load('moon2SUFFER.png').convert_alpha(),
+            'type': "Image",
+        }
         self.objects = {
             object1['name']: object1,
             enemy['name']: enemy,
+            image['name']: image,
         }
         for x in self.objects:
             if self.objects[x].get('displayed') != None:
                 self.create_object(self.objects[x])
+        surface = self.win.set_mode(z)
+        pg.Surface.blit(source=image['image'], dest=, area=None, special_flags=0)self.win
         pg.display.update()
 
     def drag_and_drop(self, object_data):
