@@ -37,3 +37,12 @@ def move(object_data):
     if object_data['direction'] == 'RIGHT':
         object_data['x'] += object_data['speed']
     return object_data
+
+
+def jump(space_bar, object_data):
+    if object_data['jumping'] == 0 and space_bar == 1:
+        object_data['jumping'] += 1
+    if object_data['jumping'] > 0:
+        object_data['y'] -= int((object_data['jump_velocity'] - pow(object_data['jumping'], 2))/10)
+        object_data['jumping'] += 1
+    return object_data
