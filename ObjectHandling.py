@@ -13,7 +13,7 @@ def update_display(surface, surface_color, surface_dim, object_list):
 
 
 def remove_object(object_name, object_list):
-    del(object_list, object_name)
+    del(object_list[object_name])
     return object_list
 
 

@@ -25,3 +25,15 @@ def move_path(object_data):
         if object_data['direction'] == 'RIGHT':
             object_data['x'] += 1
     return object_data
+
+
+def move(object_data):
+    if object_data['direction'] == 'UP':
+        object_data['y'] -= object_data['speed']
+    if object_data['direction'] == 'DOWN':
+        object_data['y'] += object_data['speed']
+    if object_data['direction'] == 'LEFT':
+        object_data['x'] -= object_data['speed']
+    if object_data['direction'] == 'RIGHT':
+        object_data['x'] += object_data['speed']
+    return object_data

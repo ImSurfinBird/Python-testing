@@ -79,7 +79,7 @@ class Suffer:
         pg.display.update()
 
         self.objects = obj.create_object(self.objects, "Test", (0, 0), "moon2SUFFER.png")
-        self.objects['Test']['drag'] = False
+        #self.objects['Test']['drag'] = False
         self.objects['Test']['path'] = path
         self.objects['Test']['speed'] = 5
         self.objects['Test']['direction'] = 'RIGHT'
@@ -104,6 +104,8 @@ class Suffer:
                     self.active[x] = fun.drag_and_drop(self.m, self.p, self.active[x])
                 if self.active[x].get('path') != None:
                     self.active[x] = fun.move_path(self.active[x])
+                if self.active[x].get('speed') != None and self.active[x].get('path') == None:
+                    self.active[x] = fun.move(self.active[x])
 
             obj.update_display(self.win, self.bg, self.window_size, self.active)
 
