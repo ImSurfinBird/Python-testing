@@ -80,6 +80,9 @@ class Suffer:
 
         self.objects = obj.create_object(self.objects, "Test", (0, 0), "moon2SUFFER.png")
         self.objects['Test']['drag'] = False
+        self.objects['Test']['path'] = path
+        self.objects['Test']['speed'] = 5
+        self.objects['Test']['direction'] = 'RIGHT'
 
         self.active['Test'] = obj.duplicate_object('Test', self.objects)
         obj.display_object(self.win, 'Test', self.active)
@@ -97,8 +100,10 @@ class Suffer:
             self.counter += 1
 
             for x in self.active:
-                if self.active[x]['drag']!= None:
+                if self.active[x].get('drag') != None:
                     self.active[x] = fun.drag_and_drop(self.m, self.p, self.active[x])
+                if self.active[x].get('path') != None:
+                    self.active[x] = fun.move_path(self.active[x])
 
             obj.update_display(self.win, self.bg, self.window_size, self.active)
 

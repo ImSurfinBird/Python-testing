@@ -12,17 +12,16 @@ def drag_and_drop(mouse_button1, mouse_coords, object_data):
     return object_data
 
 
-def move(self, path, object_data):
-    self.remove_object(object_data)
-    if (object_data['x'], object_data['y']) in path.keys():
-        object_data['direction'] = path[(object_data['x'], object_data['y'])]
-    if object_data['direction'] == 'UP':
-        object_data['y'] -= object_data['speed']
-    if object_data['direction'] == 'DOWN':
-        object_data['y'] += object_data['speed']
-    if object_data['direction'] == 'LEFT':
-        object_data['x'] -= object_data['speed']
-    if object_data['direction'] == 'RIGHT':
-        object_data['x'] += object_data['speed']
-    self.create_object(object_data)
+def move_path(object_data):
+    for s in range(object_data['speed']):
+        if(object_data['x'], object_data['y']) in object_data['path'].keys():
+            object_data['direction'] = object_data['path'][(object_data['x'], object_data['y'])]
+        if object_data['direction'] == 'UP':
+            object_data['y'] -= 1
+        if object_data['direction'] == 'DOWN':
+            object_data['y'] += 1
+        if object_data['direction'] == 'LEFT':
+            object_data['x'] -= 1
+        if object_data['direction'] == 'RIGHT':
+            object_data['x'] += 1
     return object_data
