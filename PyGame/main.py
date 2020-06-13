@@ -12,8 +12,7 @@ def install(package):
 install('pygame')
 
 import pygame as pg
-import ObjectHandling as obj
-import ObjectFunctions as fun
+from PyGame import ObjectFunctions as fun, ObjectHandling as obj
 
 
 class Suffer:
